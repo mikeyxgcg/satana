@@ -26,8 +26,7 @@ client.on('ready', function(){
         if( i == (setGame.length)-1 ){
             j = -1;
         }
-        i = i+j;
-        client.user.setGame(setGame[i],`http://www.twitch.tv/n3k4a`);
+        i = i+
     }, ms);
     console.log(` ╔═══╗──╔╗ |> Name: ${client.user.username}`);
  console.log(` ║╔═╗║──║║ |> Servers: ${client.guilds.size}`);
@@ -2458,4 +2457,176 @@ client.on('message', function(message) {
 	}
 });
 })
+	
+	client.on('message',async message => {
+  if(message.author.bot || message.channel.type === 'dm') return;
+  let args = message.content.split(' ');
+  if(args[0] === `${prefix}bc`) {
+    if(!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send('⛔ | You dont have **ADMINISTRATOR** Permission!');
+    if(!args[1]) return message.channel.send('**➥ Useage:** ${prefix}bc message');
+  
+    let msgCount = 0;
+    let errorCount = 0;
+    let successCount = 0;
+    message.channel.send(`**- [ 🔖 :: ${msgCount} ] ・عدد الرسائل المرسلة**\n**- [ 📥 :: ${successCount} ] ・عدد الرسائل المستلمة**\n**- [ 📤 :: ${errorCount} ]・عدد الرسائل الغير مستلمة**`).then(msg => {
+      message.guild.members.forEach(g => {
+        g.send(args.slice(1).join(' ')).then(() => {
+          successCount++;
+          msgCount++;
+          msg.edit(`**- [ 🔖 :: ${msgCount} ] ・عدد الرسائل المرسلة**\n**- [ 📥 :: ${successCount} ] ・عدد الرسائل المستلمة**\n**- [ 📤 :: ${errorCount} ]・عدد الرسائل الغير مستلمة**`);
+        }).catch(e => {
+          errorCount++;
+          msgCount++;
+          msg.edit(`**- [ 🔖 :: ${msgCount} ] ・عدد الرسائل المرسلة**\n**- [ 📥 :: ${successCount} ] ・عدد الرسائل المستلمة**\n**- [ 📤 :: ${errorCount} ]・عدد الرسائل الغير مستلمة**`);
+        });
+      });
+    });
+  }
+});
+	
+	client.on('message', message => {
+    if (message.author.bot) return;
+     if (message.content === prefix + "email") {
+function randomem() {
+let email = '';
+const ReBeL = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789._"\'';
+for (let i = 0; i < 5; i++) email += ReBeL.charAt(Math.floor(Math.random() * ReBeL.length));
+return email;
+}
+function randompass() {
+let pass = '';
+const CoDeS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!?@#$%&()-_"\'';
+for (let i = 0; i < 8; i++) pass += CoDeS.charAt(Math.floor(Math.random() * CoDeS.length));
+return pass;
+}
+const random1 = randomem();
+const random2 = randompass();
+message.author.send(`------------------------
+email : **${random1}@gmail.com**
+password : **${random2}**
+------------------------`).catch(err => {
+   if(err == "DiscordAPIError: Cannot send messages to this user") {
+      return message.channel.send("**للأسف , لديك اعدادات خصوصية لاتسمح لي بأرسال رسائل خاصة لك **");
+}
+});
+
+message.channel.send("**تم الارسال الحساب في الخاص | ☑ **")
+}});
+
+	client.on('message', rw => {//Toixc Codes
+  if (rw.content.startsWith('vb')) {//Toixc Codes
+if (!rw.member.hasPermission("MOVE_MEMBERS")) return rw.channel.send("**YOU DONT HAVE PERMISSION** | ❎ ");
+let men = rw.mentions.users.first()//Toixc Codes
+let mas = rw.author//Toixc Codes
+if(!men) return rw.channel.send('``');//Toixc Codes
+rw.guild.channels.forEach(c => {
+c.overwritePermissions(men.id, {//Toixc Codes
+          CONNECT: false
+})
+    })
+const embed = new Discord.RichEmbed()
+.setColor("RANDOM")//Toixc Codes
+.setDescription(`**
+ <@${men.id}>
+YOU CANT JOIN THE VOICE ROOM
+BANNER : <@${rw.author.id}> **`)//Toixc Codes
+.setThumbnail("https://cdn.discordapp.com/attachments/408952032112803850/452090205793681419/fd684707fc14f41663f15ecebf089f06.png")
+         
+client.users.get(men.id).sendEmbed(embed)
+const Embed11 = new Discord.RichEmbed()//Toixc Codes
+.setColor("RANDOM")
+.setAuthor(rw.guild.name, rw.guild.iconURL)
+.setDescription(`          <@${men.id}>
+BANNED//Toixc Codes
+BANNER : <@${rw.author.id}> `)
+.setThumbnail("https://cdn.discordapp.com/attachments/408952032112803850/452090205793681419/fd684707fc14f41663f15ecebf089f06.png")
+rw.channel.sendEmbed(Embed11).then(rw => {rw.delete(10000)})
+    }
+})
+ 
+ //فكه//Toixc Codes
+client.on('message', rw => {//Toixc Codes
+  if (rw.content.startsWith('$vb')) {
+if (!rw.member.hasPermission("MOVE_MEMBERS")) return rw.channel.send("**YOU DONT HAVE PERMISSION** | ❎ ");
+ let men = rw.mentions.users.first()
+ let mas = rw.author//Toixc Codes
+ if(!men) return rw.channel.send('`MANTION THE MEMBER `');//Toixc Codes
+ rw.guild.channels.forEach(c => {//Toixc Codes
+ c.overwritePermissions(men.id, {//Toixc Codes
+         CONNECT: true//Toixc Codes
+ })
+    })//Toixc Codes
+const embed = new Discord.RichEmbed()//Toixc Codes
+.setColor("RANDOM")//Toixc Codes
+.setDescription(`**
+ <@${men.id}>//Toixc Codes
+ Welcome Back
+Back With : <@${rw.author.id}> **`)//Toixc Codes
+.setThumbnail("https://cdn.discordapp.com/attachments/408952032112803850/452093541003296788/start-button-hi.png")
+         
+client.users.get(men.id).sendEmbed(embed)//Toixc Codes
+const Embed11 = new Discord.RichEmbed()//Toixc Codes
+.setColor("RANDOM")
+.setAuthor(rw.guild.name, rw.guild.iconURL)//Toixc Codes
+.setDescription(`          <@${men.id}>
+GO FOR VOICE NOW
+With : <@${rw.author.id}>//Toixc Codes
+`)//Toixc Codes
+.setThumbnail("https://cdn.discordapp.com/attachments/408952032112803850/452093541003296788/start-button-hi.png")
+rw.channel.sendEmbed(Embed11).then(rw => {rw.delete(15000)})//Toixc Codes
+    }//Toixc Codes
+}); //Toixc Codes
+
+	var config = {
+  events: [
+    {type: "CHANNEL_CREATE", logType: "CHANNEL_CREATE", limit: 3 , delay: 3000},
+    {type: "CHANNEL_DELETE", logType: "CHANNEL_DELETE", limit: 2, delay: 3000},
+    {type: "GUILD_MEMBER_REMOVE", logType: "MEMBER_KICK", limit: 3, delay: 3000},
+    {type: "GUILD_BAN_ADD", logType: "MEMBER_BAN_ADD", limit: 3, delay: 3000}
+  ]
+}
+client.on("raw", (packet)=> {
+  let {t, d} = packet, type = t, {guild_id} = data = d || {};
+  if (type === "READY") {
+    client.startedTimestamp = new Date().getTime();
+    client.captures = [];
+  }
+  let event = config.events.find(anEvent => anEvent.type === type);
+  if (!event) return;
+  let guild = client.guilds.get(guild_id);
+  if (!guild) return;
+  guild.fetchAuditLogs({limit : 1, type: event.logType})
+    .then(eventAudit => {
+      let eventLog = eventAudit.entries.first();
+      if (!eventLog) return;
+      let executor = eventLog.executor;
+      guild.fetchAuditLogs({type: event.logType, user: executor})
+        .then((userAudit, index) => {
+          let uses = 0;
+          userAudit.entries.map(entry => {
+            if (entry.createdTimestamp > client.startedTimestamp && !client.captures.includes(entry.id)) uses += 1;
+          });
+          setTimeout(() => {
+            client.captures.push(index);
+          }, event.delay || 2000)
+          if (uses >= event.limit) {
+            client.emit("reachLimit", {
+              user: userAudit.entries.first().executor,
+              member: guild.members.get(executor.id),
+              guild: guild,
+              type: event.type,
+            })
+          }
+        }).catch(console.error)
+    }).catch(console.error)
+});
+client.on("reachLimit", (limit)=> {
+  let log = limit.guild.channels.find( channel => channel.name === "اسم الروم");
+  log.send(limit.user.username+"\ try to hack !! @everyone !!");
+  limit.guild.owner.send(limit.user.username+"\ حاول التهكير الحقق (!)")
+  limit.member.roles.map(role => {
+    limit.member.removeRole(role.id)
+    .catch(log.send)
+  });
+	
 client.login(process.env.BOT_TOKEN);
